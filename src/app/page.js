@@ -34,8 +34,8 @@ export default function Home() {
               <div className="  w-full lg:w-2/5">
                 <Image
                   src="/HomePage.png"
-                  height="100"
-                  width="100"
+                  height="1200"
+                  width="1200"
                   className=" mx-auto mt-8 w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none "
                   alt="HomePage image"
                 />
