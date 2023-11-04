@@ -304,7 +304,8 @@ export default function Board() {
         <div className=" block items-center justify-start sm:flex">
           <div className="mx-4 ">Менеджер проекта:</div>
           <div>
-            {selected && selected.managerId ? (
+            {selected && selected.managerId &&  allUsers.filter((user) => user.id == selected.managerId)[0]
+                      .image ? (
               <>
                 <Image
                   src={
