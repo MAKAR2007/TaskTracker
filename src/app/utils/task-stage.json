@@ -1,0 +1,14 @@
+[
+  {
+    "stage": "New"
+  },
+  {
+    "stage": "WIP"
+  },
+  {
+    "stage": "Review"
+  },
+  {
+    "stage": "Done"
+  }
+]

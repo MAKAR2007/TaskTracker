@@ -1,0 +1,14 @@
+[
+  {
+    "status": "New"
+  },
+  {
+    "status": "WIP"
+  },
+  {
+    "status": "Review"
+  },
+  {
+    "status": "Done"
+  }
+]

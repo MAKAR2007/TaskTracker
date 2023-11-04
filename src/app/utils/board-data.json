@@ -1,0 +1,81 @@
+[
+  {
+    "stage": "New",
+    "tasks": [
+      {
+        "id": "15247befec5854a2c5ca774c",
+        "title": "Проектирование веб-сайта компании.",
+        "description": "тестовое описание",
+        "comments": [
+          { "comment": "Комментарий 1" },
+          { "comment": "Комментарий 2" }
+        ],
+        "priority": "Low"
+      },
+      {
+        "id": "25247befec5854a2c5ca774c",
+        "title": "Прототип процесса входа в мобильное приложение.",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "Medium"
+      }
+    ]
+  },
+  {
+    "stage": "WIP",
+    "tasks": [
+      {
+        "id": "35247befec5854a2c5ca774c",
+        "title": "Исследование и стратегия для предстоящего проекта.",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "High"
+      }
+    ]
+  },
+  {
+    "stage": "Review",
+    "tasks": [
+      {
+        "id": "45247befec5854a2c5ca774c",
+        "title": "Переработка компоновки панели мониторинга.",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "High"
+      },
+      {
+        "id": "55247befec5854a2c5ca774c",
+        "title": "Публикации в социальных сетях",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "Undefined"
+      }
+    ]
+  },
+  {
+    "stage": "Done",
+    "tasks": [
+      {
+        "id": "95247befec5854a2c5ca774c",
+        "title": "Просмотр документа со спецификациями клиента и предоставление отзывов.",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "Medium"
+      },
+      {
+        "id": "75247befec5854a2c5ca774c",
+        "title": "Разработка навигации сайта.",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "High"
+      },
+      {
+        "id": "85247befec5854a2c5ca774c",
+        "title": "Создание руководства по стилю на основе предыдущих отзывов",
+        "description": "тестовое описание",
+        "comments": [],
+        "priority": "Undefined"
+      }
+    ]
+  }
+]
