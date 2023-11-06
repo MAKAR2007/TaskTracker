@@ -39,7 +39,7 @@ export default function ProjectEdit({ params: { id } }) {
     id: 0,
   });
   const [isChanged, setIsChanged] = useState(false);
-
+  const isPrj = true;
   // функция записи обновленных данных по проекту в базу данных
   const [updateProject] = useMutation(UPDATE_PROJECT, {
     refetchQueries: [{ query: sPRJ_QUERY }],
@@ -171,6 +171,7 @@ export default function ProjectEdit({ params: { id } }) {
                 sharedState={manager}
                 isChanged={isChanged}
                 setIsChanged={setIsChanged}
+                isPrj={isPrj}
               />
             </div>
 

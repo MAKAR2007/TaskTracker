@@ -85,6 +85,21 @@ export default function Reports() {
                       </a>
                     </td>
                   </tr>
+                  <tr className="border-b">
+                    <td className="p-5">Список задач пользователей</td>
+                    <td className="p-5">
+                      Отчет содержит список задач пользователя/пользователей с
+                      указанием планируемых дат завершения и статусов
+                    </td>
+                    <td className="p-5">
+                      <a
+                        href="reports/consrep3"
+                        className="text-indigo-600 hover:text-indigo-900"
+                      >
+                        Ссылка на отчет
+                      </a>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

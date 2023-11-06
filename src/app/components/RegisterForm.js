@@ -32,7 +32,7 @@ function RegisterForm({ submitHandler, user }) {
   //экран формы регистрации
   return (
     <form
-      className="w-full max-w-screen-md "
+      className="mx-auto w-full max-w-screen-md  "
       onSubmit={handleSubmit(submitHandler)}
     >
       <div className=" bg-white p-6 ">
@@ -211,7 +211,7 @@ function RegisterForm({ submitHandler, user }) {
               minLength: {
                 value: 8,
                 message:
-                  "Пароль должен состоять из 8ми и более символов, включая буквы и цифры",
+                  "Пароль должен состоять из 8ми и более символов, включая буквы, цифры и хотя бы 1 специальный символ",
               },
               pattern: {
                 value:

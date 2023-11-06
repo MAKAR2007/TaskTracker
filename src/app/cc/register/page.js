@@ -49,6 +49,33 @@ export default function RegisterScreen() {
     } catch (error) {
       console.log(error);
     }
+
+    //отправка уведомления пользователю о регистрации в системе
+
+    const mName = name;
+    const mEmail = email;
+    let title = "&quot;Ментор задач&quot;";
+    let description =
+      "Система разработана УК ПК для организации, планирования и контроля задач и проектов.";
+    const data = { mName, mEmail, title, description, password };
+    try {
+      const response = await fetch("/api/contact", {
+        method: "post",
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        console.log("falling over");
+        throw new Error(`response status: ${response.status}`);
+      }
+      const responseData = await response.json();
+      console.log(responseData["message"]);
+
+      alert("Уведомление сотруднику  о регистрации в системе отправлено");
+    } catch (err) {
+      console.error(err);
+      alert("Ошибка отправки уведомления орегистрации в системе");
+    }
+
     if (session?.user.role == "administrator") {
       router.push("/cc/teamlist");
     } else {
@@ -74,21 +101,27 @@ export default function RegisterScreen() {
 
   //отображение экрана регистрационной формы
   return (
-    <div className="h-screen  bg-bgmain-100">
-      <div className="mx-auto  max-w-xl px-4 ">
-        <div className="flex h-screen max-w-5xl flex-col items-center justify-around py-8">
-          <div className="">
-            <Logo />
-          </div>
-          <ToastContainer position="bottom-center" limit={1} />
-          <h1 className="mb-4 text-xl">Зарегистрировать сотрудника</h1>
-          <p className="mb-4 text-sm text-gray-400">
+    <div className=" mx-auto h-screen max-w-5xl bg-bgmain-100   2xl:ml-72 2xl:max-w-full">
+      <div className="mx-auto max-w-screen-md py-10">
+        <div className="">
+          {!session && (
+            <div className="flex flex-col items-center justify-around">
+              <Logo />
+            </div>
+          )}
+          <h1 className="flex flex-col items-center justify-around pb-3 text-2xl font-semibold">
+            Зарегистрировать сотрудника
+          </h1>
+          <p className=" text-gray-600">
             Заполните поля для получения доступа к Ментору задач. Администратор
             создаст для вас учетную запись, после чего вы получите логин и
             пароль по электронной почте, указанной при регистрации.
           </p>
-          <RegisterForm submitHandler={submitHandler} user={user} />
         </div>
+      </div>
+
+      <div className=" overflow-x-auto bg-bgmain-100">
+        <RegisterForm submitHandler={submitHandler} user={user} />
       </div>
     </div>
   );

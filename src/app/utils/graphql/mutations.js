@@ -255,3 +255,11 @@ export const DELETE_FILE = gql`
     }
   }
 `;
+export const DELETE_COMMENT = gql`
+  mutation DeleteComment($id: ID!) {
+    deleteComment(id: $id) {
+      id
+      comment
+    }
+  }
+`;

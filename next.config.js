@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [{ hostname: "images.unsplash.com" }],
-    domains: ["randomuser.me", "avatars.githubusercontent.com"],
+    domains: ["randomuser.me", "avatars.githubusercontent.com", 'ru.freepik.com'],
   },
   experimental: {
     serverActions: true,

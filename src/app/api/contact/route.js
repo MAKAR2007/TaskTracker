@@ -17,17 +17,32 @@ export async function POST(request) {
   const manager = await data.mName;
 
   const title = await data.title;
-  const description = await data.description;
-  if (await data.taskLink) {
-    var tLink = process.env.TASKMENTOR_URL + data.taskLink;
-    var tMsg = "Вам назначена новая задача";
+  if (data.description) {
+    var dskp = await data.description;
   } else {
-    var tMsg = "Cоздан новый проект";
-    var tLink = process.env.TASKMENTOR_URL + "/cc";
+    var dskp = "";
   }
-  const taskLink = tLink;
+  const description = dskp;
 
+  if (await data.password) {
+    var pwd = data.password;
+    var tLink = process.env.TASKMENTOR_URL;
+    var tMsg = "Вы успешно зарегистрированы в системе.";
+    var tMsg2 = `Для входа в систему введите свой адрес электоронной почты: <&nbsp;${toEmail}&nbsp;> и пароль: <&nbsp;${pwd}&nbsp;>, пройдя по ссылке: `;
+  } else {
+    if (await data.taskLink) {
+      var tLink = process.env.TASKMENTOR_URL + "/cc/reports/consrep3";
+      var tMsg = "Вам назначена новая задача";
+      var tMsg2 = "Просмотреть список назначенных задач можно в отчете ";
+    } else {
+      var tMsg = "Cоздан новый проект";
+      var tLink = process.env.TASKMENTOR_URL + "/cc";
+      var tMsg2 = "Для перехода к проекту, выберите его из списка по ссылке: ";
+    }
+  }
+  const userLink = tLink;
   const message = tMsg;
+  const message2 = tMsg2;
 
   const transporter = nodemailer.createTransport({
     host: host,
@@ -58,7 +73,7 @@ export async function POST(request) {
             <p>Сообщение: ${message} </p>
             <p>Название: ${title} </p>
             <p>Описание: ${description} </p>
-            <p>Войдите в систему Ментор задач чтобы пройти по ссылке <a href=${taskLink}>${taskLink}</a></p>
+            <p>${message2} <href=${userLink}>${userLink}</p>
             `,
     });
 

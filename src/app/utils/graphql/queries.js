@@ -71,6 +71,22 @@ export const sPRJ_QUERY = gql`
     }
   }
 `;
+export const PRJ_TREE_QUERY = gql`
+  query project($id: ID!) {
+    project(id: $id) {
+      id
+      tasks {
+        id
+        comments {
+          id
+        }
+        files {
+          id
+        }
+      }
+    }
+  }
+`;
 export const TASKS_QUERY = gql`
   query tasks {
     tasks {

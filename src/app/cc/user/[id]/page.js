@@ -55,16 +55,20 @@ export default function EditUser({ params: { id } }) {
   //функция обображения экрана редактирования данных пользователя
   return (
     <Suspense fallback={<>Loading...</>}>
-      <div className="p h-screen bg-bgmain-100">
-        <div className="mx-auto  max-w-xl px-4 ">
-          <div className="flex h-screen max-w-5xl flex-col items-center justify-around py-8">
+      <div className=" mx-auto h-screen max-w-5xl bg-bgmain-100   2xl:ml-72 2xl:max-w-full">
+        <div className="mx-auto max-w-screen-md py-10">
+          <div>
             <ToastContainer position="bottom-center" limit={1} />
-            <h1 className="mb-4 text-xl">Редактирование профиля</h1>
-            <p className="mb-4 text-sm text-gray-400">
+            <h1 className="flex flex-col items-center justify-around pb-3 text-2xl font-semibold">
+              Редактирование профиля
+            </h1>
+            <p className=" text-center text-gray-600">
               Отредактируйте требуемые поля
             </p>
-            <RegisterForm submitHandler={submitHandler} user={user} />
-          </div>
+          </div>{" "}
+        </div>
+        <div className=" overflow-x-auto bg-bgmain-100">
+          <RegisterForm submitHandler={submitHandler} user={user} />
         </div>
       </div>
     </Suspense>

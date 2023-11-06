@@ -14,6 +14,7 @@ import { redirect, useRouter } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import NowDate from "@/app/components/NowDate";
+import { useSelectedContext } from "@/app/context/SelectedProvider";
 
 export const dynamic = "force-dynamic";
 
@@ -51,6 +52,8 @@ export default function Task({ params: { id } }) {
   const [description, setDescription] = useState(task.description);
   const [comment, setComment] = useState("");
   const [endDate, setEndDate] = useState(task.endDate);
+
+  const [selected, setSelected] = useSelectedContext();
 
   let nStage2 = "";
   if (task.stage === "New") {
@@ -90,6 +93,7 @@ export default function Task({ params: { id } }) {
     id: null,
   });
   const [isChanged, setIsChanged] = useState(false);
+  const isPrj = false;
   const [file, setFile] = useState();
   const [fUploaded, setFUploaded] = useState(false);
 
@@ -103,7 +107,18 @@ export default function Task({ params: { id } }) {
       setFile(task.files[0]);
       setFUploaded(true);
     }
-  }, [task.files, task.projectId, task.userId, users]);
+    if (!selected) {
+      setSelected(sPrj);
+    }
+  }, [
+    sPrj,
+    selected,
+    setSelected,
+    task.files,
+    task.projectId,
+    task.userId,
+    users,
+  ]);
 
   // функция обновления задачи в базе данных с указанным в параметрах id
   const handleUpdateTask = async (e) => {
@@ -453,6 +468,7 @@ export default function Task({ params: { id } }) {
                     sharedState={sharedState}
                     isChanged={isChanged}
                     setIsChanged={setIsChanged}
+                    isPrj={isPrj}
                   />
                 </div>
               </div>

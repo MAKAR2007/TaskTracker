@@ -182,8 +182,9 @@ export default function Board() {
         }
         const priority = "Undefined";
         const projectId = selected.id;
+        /********************************* */
         const item = {
-          id: createGuidId(),
+          id: createAtlasId(),
           userId: createAtlasId(),
           title: title,
           priority: priority,
@@ -304,8 +305,7 @@ export default function Board() {
         <div className=" block items-center justify-start sm:flex">
           <div className="mx-4 ">Менеджер проекта:</div>
           <div>
-            {selected && selected.managerId &&  allUsers.filter((user) => user.id == selected.managerId)[0]
-                      .image ? (
+            {selected && selected.managerId ? (
               <>
                 <Image
                   src={

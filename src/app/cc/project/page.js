@@ -34,7 +34,7 @@ export default function CreateProject() {
     id: 0,
   });
   const [isChanged, setIsChanged] = useState(false);
-
+  const isPrj = true;
   //функция для добавления данных по проекту в базу данных
   const [addProject] = useMutation(ADD_PROJECT, {
     refetchQueries: [{ query: PRJ_QUERY }],
@@ -157,6 +157,7 @@ export default function CreateProject() {
                 sharedState={manager}
                 isChanged={isChanged}
                 setIsChanged={setIsChanged}
+                isPrj={isPrj}
               />
             </div>
 
